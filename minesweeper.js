@@ -38,11 +38,11 @@ function checkForWin () {
 } 
 
 function playAgain(){
-   let button = document.querySelector(".button")
-   button.classList.remove("button")
+   let button = document.querySelector("#button")
+   button.classList.remove("hide")
    button.addEventListener("click", function(){
       document.querySelector(".board").innerHTML = ""
-      button.classList.add("button")
+      button.classList.add("hide")
       startGame()
    })
 }
