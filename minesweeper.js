@@ -18,12 +18,29 @@ function generateBoard(n){
    }
 }
 
+function changeLevel(n){
+   document.querySelector(".board").innerHTML = ""
+   generateBoard(n)
+   countMines()
+   lib.initBoard()
+   addCheckWinListeners()
+}
+
 function startGame () {
-   generateBoard(6)
+   generateBoard(3)
+   countMines()
+   lib.initBoard()
+   addCheckWinListeners()
+}
+
+
+function countMines (){
    for(let i = 0; i < board.cells.length; i++){
       board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
    }
-   lib.initBoard()
+}
+
+function addCheckWinListeners(){
    document.querySelector(".board").addEventListener("click", checkForWin)
    document.querySelector(".board").addEventListener("contextmenu", checkForWin)
 }
