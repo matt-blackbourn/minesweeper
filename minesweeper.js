@@ -41,7 +41,9 @@ function playAgain(){
    let button = document.querySelector(".button")
    button.classList.remove("button")
    button.addEventListener("click", function(){
-      location.reload()
+      document.querySelector(".board").innerHTML = ""
+      button.classList.add("button")
+      startGame()
    })
 }
 
