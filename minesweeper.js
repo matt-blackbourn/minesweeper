@@ -114,11 +114,12 @@ function generateBoard(n){
       
       //still need to figure this out for n rows
       let rowCount
-      if(i < 5) rowCount = 0
-      if(i > 4 && i < 10) rowCount = 1
-      if(i > 9 && i < 15) rowCount = 2
-      if(i > 14 && i < 20) rowCount = 3
-      if(i > 19 && i < 25) rowCount = 4
+      if(i < 6) rowCount = 0
+      if(i > 5 && i < 12) rowCount = 1
+      if(i > 11 && i < 18) rowCount = 2
+      if(i > 17 && i < 24) rowCount = 3
+      if(i > 23 && i < 30) rowCount = 4
+      if(i > 29 ) rowCount = 5
    
       board.cells[i] = {
          row: rowCount,
@@ -133,7 +134,7 @@ function generateBoard(n){
 
 function startGame () {
    
-   generateBoard(5)
+   generateBoard(6)
    
   // Don't remove this function call: it makes the game work!
   for(let i = 0; i < board.cells.length; i++){
