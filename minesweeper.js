@@ -112,6 +112,7 @@ function generateBoard(n){
    
    for(let i = 0; i < n*n; i++){
       
+      //still need to figure this out for n rows
       let rowCount
       if(i < 5) rowCount = 0
       if(i > 4 && i < 10) rowCount = 1
@@ -123,7 +124,7 @@ function generateBoard(n){
          row: rowCount,
          col: (n + i) % n,
          hidden: true,
-         isMine: true,
+         isMine: Math.random() >= 0.7,
          isMarked: false
       }
    }
