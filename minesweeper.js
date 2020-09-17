@@ -10,12 +10,11 @@ function generateBoard(n){
    let rowCount = 0
    for(let i = 0; i < n*n; i++){
       
-      //still need to figure this out for n rows
-      if(i > 5 && i < 12) rowCount = 1
-      if(i > 11 && i < 18) rowCount = 2
-      if(i > 17 && i < 24) rowCount = 3
-      if(i > 23 && i < 30) rowCount = 4
-      if(i > 29 ) rowCount = 5
+      if(i > (n - 1) && i < (n * 2)) rowCount = 1
+      if(i > (n * 2 - 1) && i < (n * 3)) rowCount = 2
+      if(i > (n * 3 - 1) && i < (n * 4)) rowCount = 3
+      if(i > (n * 4 - 1) && i < (n * 5)) rowCount = 4
+      if(i > (n * 5 - 1) ) rowCount = 5
    
       board.cells[i] = {
          row: rowCount,
