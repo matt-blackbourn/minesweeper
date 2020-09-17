@@ -5,24 +5,18 @@ document.addEventListener('DOMContentLoaded', startGame)
 let board = {}
 
 function generateBoard(n){
-  
    board.cells = []
    let rowCount = 0
    for(let i = 0; i < n*n; i++){
-      
-      if(i > (n - 1) && i < (n * 2)) rowCount = 1
-      if(i > (n * 2 - 1) && i < (n * 3)) rowCount = 2
-      if(i > (n * 3 - 1) && i < (n * 4)) rowCount = 3
-      if(i > (n * 4 - 1) && i < (n * 5)) rowCount = 4
-      if(i > (n * 5 - 1) ) rowCount = 5
-   
+
       board.cells[i] = {
-         row: rowCount,
+         row: Math.floor(rowCount),
          col: (n + i) % n,
          hidden: true,
-         isMine: Math.random() >= 0.8,
+         isMine: Math.random() > 0.8,
          isMarked: false
       }
+      rowCount += (1/n + .001)
    }
 }
 
