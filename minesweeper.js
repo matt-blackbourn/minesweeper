@@ -28,29 +28,43 @@ function startGame () {
 
 function changeLevel(n){
    defaultLevel = n
-   toggleButton()
-   document.querySelector(".board").innerHTML = ""
+   hideButton()
+   deleteBoard()
    generateBoard(defaultLevel)
    countMines()
    lib.initBoard()
    addCheckWinListeners()
 }
 
-function toggleButton(){
-   let button = document.querySelector("#button")
-   button.classList.toggle("hide")
-}
-
 function playAgain(){
-   toggleButton()
+   showButton()
    button.addEventListener("click", function(){
-      document.querySelector(".board").innerHTML = ""
       button.classList.add("hide")
+      deleteBoard()
       generateBoard(defaultLevel)
       countMines()
       lib.initBoard()
       addCheckWinListeners()
    })
+}
+
+function deleteBoard(){
+   document.querySelector(".board").innerHTML = ""
+}
+
+function hideButton(){
+   let button = document.querySelector("#button")
+   button.classList.add("hide")
+}
+
+function showButton(){
+   let button = document.querySelector("#button")
+   button.classList.remove("hide")
+}
+
+function addCheckWinListeners(){
+   document.querySelector(".board").addEventListener("click", checkForWin)
+   document.querySelector(".board").addEventListener("contextmenu", checkForWin)
 }
 
 function checkForWin () {
@@ -66,11 +80,6 @@ function countMines (){
    for(let i = 0; i < board.cells.length; i++){
       board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
    }
-}
-
-function addCheckWinListeners(){
-   document.querySelector(".board").addEventListener("click", checkForWin)
-   document.querySelector(".board").addEventListener("contextmenu", checkForWin)
 }
 
 function countSurroundingMines (cell) {
