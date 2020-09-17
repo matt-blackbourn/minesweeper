@@ -1,107 +1,6 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-// var board = {
-//    cells: [
-//       {
-//          row: 0, 
-//          col: 0, 
-//          isMine: true, 
-//          hidden: true
-//       },
-//       {
-//          row: 0, 
-//          col: 1, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 0, 
-//          col: 2, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 0, 
-//          col: 3, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 1, 
-//          col: 0, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 1, 
-//          col: 1, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 1, 
-//          col: 2, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 1, 
-//          col: 3, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 2, 
-//          col: 0, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 2, 
-//          col: 1, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 2, 
-//          col: 2, 
-//          isMine: true, 
-//          hidden: true
-//       },
-//       {
-//          row: 2, 
-//          col: 3, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 3, 
-//          col: 0, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 3, 
-//          col: 1, 
-//          isMine: true, 
-//          hidden: true
-//       },
-//       {
-//          row: 3, 
-//          col: 2, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//       {
-//          row: 3, 
-//          col: 3, 
-//          isMine: false, 
-//          hidden: true
-//       },
-//    ]
-// }
-
 
 let board = {}
 
@@ -109,12 +8,9 @@ function generateBoard(n){
   
    board.cells = []
    let rowCount = 0
-   
    for(let i = 0; i < n*n; i++){
       
       //still need to figure this out for n rows
-      let rowCount
-      if(i < 6) rowCount = 0
       if(i > 5 && i < 12) rowCount = 1
       if(i > 11 && i < 18) rowCount = 2
       if(i > 17 && i < 24) rowCount = 3
@@ -125,7 +21,7 @@ function generateBoard(n){
          row: rowCount,
          col: (n + i) % n,
          hidden: true,
-         isMine: Math.random() >= 0.7,
+         isMine: Math.random() >= 0.8,
          isMarked: false
       }
    }
