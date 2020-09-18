@@ -29,7 +29,6 @@ function playAgain(){
 
 function restart(){
    hideButton()
-   deleteBoard()
    generateBoard(defaultLevel)
    countMines()
    lib.initBoard()
@@ -42,11 +41,8 @@ function hideButton(){
    button.classList.add("hide")
 }
 
-function deleteBoard(){
-   document.querySelector(".board").innerHTML = ""
-}
-
 function generateBoard(n){
+   document.querySelector(".board").innerHTML = "" //delete prior board
    board.cells = []
    let rowCount = 0
    for(let i = 0; i < n*n; i++){
