@@ -40,21 +40,42 @@ function hideButton(){
    button.classList.add("hide")
 }
 
+//ORIGINAL SINGLE LOOP GENERATE-BOARD - WORKS BUT NOT AS CLEAN
+
+// function generateBoard(n){
+//    document.querySelector(".board").innerHTML = "" 
+//    board.cells = []
+//    let rowCount = 0
+//    for(let i = 0; i < n*n; i++){
+//       board.cells[i] = {
+//          row: Math.floor(rowCount),
+//          col: (n + i) % n,
+//          hidden: true,
+//          isMine: Math.random() > 0.8,
+//          isMarked: false
+//       }
+//       rowCount += (1/n + .001)
+//    }
+// }
+
 function generateBoard(n){
-   document.querySelector(".board").innerHTML = "" //delete prior board
+   document.querySelector(".board").innerHTML = "" 
    board.cells = []
-   let rowCount = 0
-   for(let i = 0; i < n*n; i++){
-      board.cells[i] = {
-         row: Math.floor(rowCount),
-         col: (n + i) % n,
-         hidden: true,
-         isMine: Math.random() > 0.8,
-         isMarked: false
+   for(let i = 0; i < n; i++){
+      for(let j = 0; j < n; j++){
+         board.cells.push(
+            {
+               row: i,
+               col: j,
+               hidden: true,
+               isMine: Math.random() > 0.8,
+               isMarked: false
+            }
+         ) 
       }
-      rowCount += (1/n + .001)
    }
 }
+
 
 function countMines (){
    for(let i = 0; i < board.cells.length; i++){
