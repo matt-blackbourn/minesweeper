@@ -18,6 +18,7 @@ body {
 
 #message {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .board {
@@ -61,4 +62,45 @@ div.marked, div.marked:hover {
 
 .hide{
    display: none;
+}
+
+table{
+   text-align: center;
+}
+
+th{
+   font-size: 1.5em;
+}
+
+td{
+   font-size: 1.3em;
+   font-weight: bold;
+}
+
+#wins{
+   color: green;
+}
+
+#losses{
+   color: red;
+}
+
+.flex-container{
+   display: flex;
+   align-items: flex-start;
+}
+
+button{
+   border: blue;
+   background-color:blue;
+   color: white;
+   transition: 0.4s;
+   font-size: 2em;
+   border-radius: 10px;
+   padding: 10px;
+   margin-top: 20px;
+}
+
+button:hover{
+   background-color: #30c50a;
 }
