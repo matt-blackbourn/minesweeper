@@ -1,8 +1,12 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-// Define your `board` object here!
-let board = {}
+// GLOBAL VARIABLES...
+const board = {}
 let defaultLevel = 4
+const scores = {
+   wins: 0,
+   losses: 0
+}
 
 function startGame () {
    generateBoard(defaultLevel)
@@ -81,8 +85,15 @@ function checkForWin () {
       if(board.cells[i].isMine === false && board.cells[i].hidden === true) return
    }
    lib.displayMessage('You win!')
+   scores.wins += 1
+   updateScores()
    playAgain()
 } 
+
+function updateScores(){
+   document.querySelector("#wins").innerHTML = scores.wins
+   document.querySelector("#losses").innerHTML = scores.losses
+}
 
 function countSurroundingMines (cell) {
    var surrounding = lib.getSurroundingCells(cell.row, cell.col)
@@ -92,4 +103,6 @@ function countSurroundingMines (cell) {
    }
    return count
 }
+
+
 

@@ -5,18 +5,40 @@
     <link rel="stylesheet" href="minesweeper.css">
     <script src="lib/tests.js"></script>
     <script src="lib/lib.js"></script>
-    <script src="minesweeper.js"></script>
+    
   </head>
   <body>
     <div id="message"></div>
-    <button id="button" class="hide">Play again?</button>
     <div id="notes"></div>
-    <div class="board"></div>
-    <select name="level" id="level" onchange="changeLevel(this.value)">
-      <option value="3">3x3</option>
-      <option value="4" selected>4x4</option>
-      <option value="5">5x5</option>
-      <option value="6">6x6</option>
-    </select>
+    <div class="flex-container">
+       <table>
+          <tr>
+             <th>Difficulty</th>
+          </tr>
+          <tr>
+             <td>
+                <select name="level" id="level" onchange="changeLevel(this.value)">
+                  <option value="3">3x3 - Easy</option>
+                  <option value="4" selected>4x4 - Medium</option>
+                  <option value="5">5x5 - Hard</option>
+                  <option value="6">6x6 - Expert!</option>
+               </select>
+             </td>
+          </tr>
+       </table>
+      <div class="board"></div>
+      <table>
+         <tr>
+            <th>Wins</th>
+            <th>Losses</th>
+         </tr>
+         <tr>
+            <td id="wins">0</td>
+            <td id="losses">0</td>
+         </tr>
+      </table>
+   </div>
+   <button id="button" class="hide">Play again?</button>
+    <script src="minesweeper.js"></script>
   </body>
 </html>
