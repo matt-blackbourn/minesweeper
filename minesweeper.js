@@ -1,22 +1,21 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
-// GLOBAL VARIABLES...
 const board = {}
-let defaultLevel = 4
+let defaultBoardSize = 4
 const scores = {
    wins: 0,
    losses: 0
 }
 
 function startGame () {
-   generateBoard(defaultLevel)
+   generateBoard(defaultBoardSize)
    countMines()
    lib.initBoard()
    winListeners()
 }
 
 function changeLevel(n){
-   defaultLevel = n
+   defaultBoardSize = n
    restart()
 }
 
@@ -29,12 +28,12 @@ function playAgain(){
 
 function restart(){
    hideButton()
-   generateBoard(defaultLevel)
+   generateBoard(defaultBoardSize)
    countMines()
    lib.initBoard()
    winListeners()
 }
-//-----------RESTART() FUNCTIONS START-----------------
+//----------- RESTART() FUNCTIONS BEGIN HERE -----------------
 
 function hideButton(){
    let button = document.querySelector("#button")
@@ -68,7 +67,7 @@ function winListeners(){
    document.querySelector(".board").addEventListener("contextmenu", checkForWin)
 }
 
-//-------------RESTART() FUNCTIONS END----------------------
+//------------- RESTART() FUNCTIONS END HERE ----------------------
 
 function showButton(){
    let button = document.querySelector("#button")
