@@ -12,7 +12,7 @@ function startGame () {
    generateBoard(defaultLevel)
    countMines()
    lib.initBoard()
-   addCheckWinListeners()
+   winListeners()
 }
 
 function changeLevel(n){
@@ -33,7 +33,7 @@ function restart(){
    generateBoard(defaultLevel)
    countMines()
    lib.initBoard()
-   addCheckWinListeners()
+   winListeners()
 }
 //-----------RESTART() FUNCTIONS START-----------------
 
@@ -67,7 +67,7 @@ function countMines (){
    }
 }
 
-function addCheckWinListeners(){
+function winListeners(){
    document.querySelector(".board").addEventListener("click", checkForWin)
    document.querySelector(".board").addEventListener("contextmenu", checkForWin)
 }
